@@ -77,12 +77,16 @@ const Spotify = {
               //When the function is working properly, the only thing you should expect to see, is the address in your browser's address-bar change to whatever you specify in your URL.
               window.history.pushState('Access Token', null, '/');
               //if there is an access token youve just obtained from the url, return it. (This will happen before it expires as setTimeout is asynchronous)
+              console.log(accessToken);
+              console.log(expiresIn);
               return accessToken;
           } else {
             //the below takes you to the page where you need to authorise, whcih give you the access token.The scope "playlist-modify-public" allows us to create & add to a user's playlists.
               // const accessUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
               const accessUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
               window.location = (accessUrl);
+
+              //https://accounts.spotify.com/authorize?client_id=a038457604634aac9a912fff8748b31d&response_type=token&scope=playlist-modify-public&redirect_uri=https://pzakeri22.github.io/spotify_playlist_app
           }
       }
   },
