@@ -3,7 +3,7 @@
 
 let accessToken;
 const client_id = 'a038457604634aac9a912fff8748b31d';
-const redirect_uri = 'http://localhost:3000'; //'http://spotify-playlist-app.sh'- removed from redirect uris under my app on spotify developer site. Added http://spotify-pl... there instead
+const redirect_uri = 'https://pzakeri22.github.io/spotify_playlist_app'; //'http://localhost:3000'; //- 'http://spotify-playlist-app.sh removed from redirect uris under my app on spotify developer site. Added http://spotify-pl... there instead
 
 const Spotify = {
 
@@ -80,6 +80,7 @@ const Spotify = {
               return accessToken;
           } else {
             //the below takes you to the page where you need to authorise, whcih give you the access token.The scope "playlist-modify-public" allows us to create & add to a user's playlists.
+              // const accessUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
               const accessUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
               window.location = (accessUrl);
           }
