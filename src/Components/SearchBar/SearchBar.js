@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
         this.setState({searchTerm : parameter});
     }
 
-    search() {  //TODO 
+    search() {  
         this.props.onSearch(this.state.searchTerm);
     }
 }

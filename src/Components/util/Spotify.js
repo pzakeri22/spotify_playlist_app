@@ -1,13 +1,8 @@
-// import SearchBar from "../SearchBar/SearchBar";
-// import Tracklist from "../Tracklist/Tracklist";
-
 let accessToken;
 const client_id = 'a038457604634aac9a912fff8748b31d';
-const redirect_uri = 'https://pzakeri22.github.io/spotify_playlist_app'; //'http://localhost:3000'; //- 'http://spotify-playlist-app.sh removed from redirect uris under my app on spotify developer site. Added http://spotify-pl... there instead
+const redirect_uri = 'https://pzakeri22.github.io/spotify_playlist_app';  //'http://localhost:3000'; //-previously had this here and under app settings on spotify developer site
 
 const Spotify = {
-
-    //Our application must build a GET request to the /authorize endpoint with the following parameters. Why was this not required?
 
     async authorise() {
         let endpoint = this.getEndpoint();
@@ -24,19 +19,19 @@ const Spotify = {
     },
 
     async search(searchTerm) {
-        const accessToken = Spotify.getAccessToken();    //does this  need to be this.getAccessToken()??        
+        const accessToken = Spotify.getAccessToken();    
         const headers = {
             headers: {Authorization: `Bearer ${accessToken}`}
         }
         try {
           const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, headers);
-          if (response.ok) {  // i can include this bit, it is still fine.
+          if (response.ok) {  
             const jsonResponse = await response.json();
 
             if (!jsonResponse.tracks) {
-                return []; //
+                return []; 
             } else {
-                return jsonResponse.tracks.items.map(track => ({  //unclear why .items is needed  and why inner function has 2 brackets //items = 
+                return jsonResponse.tracks.items.map(track => ({ 
                      id: track.id,
                      name: track.name,
                      artist: track.artists[0].name,
@@ -52,8 +47,8 @@ const Spotify = {
     },
 
   
-    //obtains a users access token so that they can make requests to the Spotify API. 
-    //If no access token, will attempt authorization(granting user/application permissions to spotify data) which generates access token.
+    //obtains a users access token so  they can make requests to the Spotify API. 
+    //If no access token, will attempt authorization (granting user/application permissions to spotify data) which generates access token.
     getAccessToken() {
       if (accessToken) {
           return accessToken;
@@ -69,7 +64,7 @@ const Spotify = {
               //the below clears the paramaters, allowing us to grab a new access token when it expires.
               window.setTimeout(() => accessToken ="", expiresIn *1000);
               //1- To modify current URL and add / inject it (the new modified URL) as a new URL entry to history list, use pushState:
-              // All the function does, is to add (push) a new "state" onto the browser history, so that in future, the user will be able to return to this state that the web-page is now in.
+              // This adds (pushes) a new "state" onto the browser history, so that in future, the user will be able to return to this state that the web-page is now in.
               //For example, if a user does a search "CATS" in one of your search boxes, and the results of the search (pictures of cats) are loaded back via AJAX, -- then your page state will not be changed. 
               //In other words, in the near future, when the user decides that he wants to go back to his search for "CATS", he won't be able to, because the state doesn't exist in his history. 
               //He will only be able to click back to your blank search box.
@@ -81,12 +76,10 @@ const Spotify = {
               console.log(expiresIn);
               return accessToken;
           } else {
-            //the below takes you to the page where you need to authorise, whcih give you the access token.The scope "playlist-modify-public" allows us to create & add to a user's playlists.
-              // const accessUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
+            //If the access token is not already set, check the URL to see if it has just been obtained.
+            //the below takes you to the page where you need to authorise, which gives you the access token.The scope "playlist-modify-public" allows us to create & add to a user's playlists.
               const accessUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirect_uri}`;
               window.location = (accessUrl);
-
-              //https://accounts.spotify.com/authorize?client_id=a038457604634aac9a912fff8748b31d&response_type=token&scope=playlist-modify-public&redirect_uri=https://pzakeri22.github.io/spotify_playlist_app
           }
       }
   },
@@ -96,7 +89,7 @@ const Spotify = {
     if (!playlistName || !trackURIs) {
       return;
     }
-    const accessToken = Spotify.getAccessToken();    //does this  need to be this.getAccessToken()??
+    const accessToken = Spotify.getAccessToken();  
     const headers = {Authorization: `Bearer ${accessToken}`};
     let userID;
     let playlistID;
@@ -112,8 +105,6 @@ const Spotify = {
       else {
         throw new Error(`Request Failed! ${response.status}, ${response.message}`);  
       }
-      // console.log(jsonResponse.id);
-      // console.log(jsonResponse);
       userID = jsonResponse.id;
     }
 
@@ -132,8 +123,7 @@ const Spotify = {
       }
 
     async function asyncUpdatePlaylist() {
-      //online it looks like endpoint is `https://api.spotify.com/v1/playlists/${playlistID}/tracks` but i will use what codecademy said
-      //https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks
+      //online it looks like endpoint is `https://api.spotify.com/v1/playlists/${playlistID}/tracks`
       const response = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, {
         headers: headers,
         method: 'POST',

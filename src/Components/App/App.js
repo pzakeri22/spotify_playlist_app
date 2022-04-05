@@ -10,23 +10,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults : [
-          // {"id": 1, "name": "One True Love", "artist": "Jordan", "album": "Miss U Baby" },
-          // {"id": 2, "name": "Favourite Honey", "artist": "DJ Robin", "album": "Never Look Back" },
-          // {"id": 3, "name": "Perfect", "artist": "TT Beats", "album": "Actions Not Words" }
-      ],
+      searchResults : [],
       playlistName : "New Playlist",
-      playlistTracks :  [
-          // {"id": 4, "name": "song1", "artist": "Jordeen", "album": "Miss U Boby" },
-          // {"id": 5, "name": "song2", "artist": "DJ Robeen", "album": "Never Look Bk" },
-          // {"id": 6, "name": "song3", "artist": "TT Beatzz", "album": "Actions Not Wordzz" }
-      ]
-      };
-      this.addTrack = this.addTrack.bind(this);
-      this.removeTrack = this.removeTrack.bind(this);
-      this.updatePlaylistName = this.updatePlaylistName.bind(this);
-      this.savePlaylist = this.savePlaylist.bind(this);
-      this.search = this.search.bind(this);
+      playlistTracks :  []
+    };
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+    this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
  
   render() {
@@ -80,8 +72,6 @@ class App extends React.Component {
   }
 
   search(searchParameter) {
-    // const spotifyResults = Spotify.search(searchParameter);
-    // this.setState({searchResults : spotifyResults});]
     Spotify.search(searchParameter).then(searchResults => {
       this.setState({searchResults : searchResults})
     })
