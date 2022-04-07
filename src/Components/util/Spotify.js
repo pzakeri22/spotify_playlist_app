@@ -1,6 +1,6 @@
 let accessToken;
 const client_id = 'a038457604634aac9a912fff8748b31d';
-const redirect_uri = 'https://pzakeri22.github.io/spotify_playlist_app'; //'http://localhost:3000'; 'https://pzakeri22.github.io/spotify_playlist_app' //-previously had this here and under app settings on spotify developer site
+const redirect_uri = 'http://localhost:3000'; //https://pzakeri22.github.io/spotify_playlist_app'  //-previously had this here and under app settings on spotify developer site
 
 const Spotify = {
 
@@ -73,8 +73,6 @@ const Spotify = {
               //When the function is working properly, the only thing you should expect to see, is the address in your browser's address-bar change to whatever you specify in your URL.
               window.history.pushState('Access Token', null, '/');
               //if there is an access token youve just obtained from the url, return it. (This will happen before it expires as setTimeout is asynchronous)
-              console.log(accessToken);
-              console.log(expiresIn);
               return accessToken;
           } else {
             //If the access token is not already set, check the URL to see if it has just been obtained.
