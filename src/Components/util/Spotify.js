@@ -1,6 +1,6 @@
 let accessToken;
 const client_id = 'a038457604634aac9a912fff8748b31d';
-const redirect_uri = 'https://pzakeri22.github.io/spotify_playlist_app'; //'http://localhost:3000'; //-previously had this here and under app settings on spotify developer site
+const redirect_uri = 'https://pzakeri22.github.io/spotify_playlist_app'; //'http://localhost:3000'; 'https://pzakeri22.github.io/spotify_playlist_app' //-previously had this here and under app settings on spotify developer site
 
 const Spotify = {
 
