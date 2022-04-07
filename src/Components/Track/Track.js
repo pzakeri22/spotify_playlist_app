@@ -15,6 +15,8 @@ class Track extends React.Component {
                 <div className="Track-information">
                     <h3>{this.props.track.name}</h3>
                     <p>{this.props.track.artist} | {this.props.track.album}</p>
+                        {/* <source src={this.props.track.preview} type="audio/mp3"/> */}
+                        {this.props.track.preview ? <audio controls><source src={this.props.track.preview} type="audio/mp3"/></audio> : <p class="noPreview">Song preview not available.</p>}
                 </div>
                 {this.renderAction()}
             </div>
