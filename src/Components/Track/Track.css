@@ -44,3 +44,8 @@
   font-style: italic;
   font-size: .73rem;
 }
+
+
+audio {
+  height: 30px;
+}
