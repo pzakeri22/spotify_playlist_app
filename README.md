@@ -16,8 +16,13 @@ This project was created with:
 
 Due to limits placed by Spotify on the use of their API, this app requires users to be individually authorised to log in, therefore it cannot be accessed publicly. Instead, please click the link below to see a video of the app in use:
 
+
 optimized:
+
+[![Demo CountPages alpha](https://gifs.com/gif/spotify-app-k2P2Vv?muted=false)](https://user-images.githubusercontent.com/92223059/181062140-14a675c8-686b-4903-a5c3-1fe285efbce0.mp4
+)
 https://gifs.com/gif/spotify-app-k2P2Vv?muted=false
+
 direct
 https://j.gifs.com/k2P2Vv.gif
 
