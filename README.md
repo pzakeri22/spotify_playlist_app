@@ -1,6 +1,7 @@
 # Spotify App - Search & Add to Playlist
 
-Single page application which allows users to search a database of songs and create a new playlist to be added to their Spotify account.
+Single page application which allows users to search a database of songs, create a new playlist, then add it to their Spotify account.
+This involved building user authentication with the OAuth 2.0 Implicit Grant authorization framework.
 
 ## Technologies
 
