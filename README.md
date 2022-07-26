@@ -14,6 +14,6 @@ This project was created with:
 
 Due to limits placed by Spotify on the use of their API, this app requires users to be individually authorised to log in, therefore it cannot be accessed publicly. Instead, please see a video showing this app in use:
 
-<video src="./spotify-app-sample.mp4" controls="controls" style="max-width: 730px;"></video> 
+<video src="./spotify-app-sample.mp4" controls="controls" style="max-width: 730px;"><img src="./jamming-screenshot.png"/></video> 
 
 To open the site, visit https://pzakeri22.github.io/spotify_playlist_app 
