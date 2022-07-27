@@ -13,7 +13,7 @@ This project was created with:
 
 ## Demo
 
-[![jamming-screenshot.png](https://i.postimg.cc/rF2H0vp4/jamming-screenshot.png)](https://postimg.cc/9z1bsgZX)
+[![jamming-screenshot-2.png](https://i.postimg.cc/DfSMscTr/jamming-screenshot-2.png)](https://postimg.cc/mhGjWChk)
 
 Due to limits placed by Spotify on the use of their API, this app requires users to be individually authorised to log in, therefore it cannot be accessed publicly. Instead, please watch this demo of the app in use:
 
